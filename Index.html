@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Open Camera</title>
+</head>
+<body>
+    <h1>Open Camera</h1>
+    <button id="openCamera">Open Camera</button>
+    <video id="video" width="300" height="200" autoplay></video>
+    <script>
+        document.getElementById('openCamera').addEventListener('click', async () => {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } });
+            const video = document.getElementById('video');
+            video.srcObject = stream;
+        });
+    </script>
+</body>
+</html>
